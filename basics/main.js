@@ -56,3 +56,53 @@ gomszab.play()
 gomszab.play()
 console.log(gomszab.getTierlvl())
 console.log(gomszab)
+
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    getName(){
+        return this.name;
+    }
+}
+
+class Student extends Person {
+    constructor(name,school){
+        super(name)
+        this.school = school;
+    }
+}
+
+const student = new Student("Géza", "Bolyai");
+console.log("név"+ student.getName()+ "| iskola " + student.school);
+
+class Animal {
+    constructor(name){
+        this.name=name;
+
+    }
+
+    hang() {
+        console.log(this.name + " hangot ad ki ");
+    }
+}
+
+class Mammal extends Animal {
+    constructor(name){
+        super(name)
+    }
+
+    setal() {
+        console.log(this.name + " gyalagol")
+    }
+}
+
+const bird = new Bird ("cinege");
+
+bird.hang();
+bird.repul();
+
+const mammal = Mammal("Macska");
+mammal.hang()
+mammal.setal()
