@@ -44,13 +44,23 @@ document.getElementById('product').addEventListener('submit',function(e){
 * table render
 */
 function initTable(){
+    for(let i=0 ;i<companionList.length;i++ ){
+        const  currentelement = companionList[i]//az aktualis objektum tarolasa
+        const companion = new Companion(i,currentelement.firstName,currentelement.lastName,currentelement.area)
+        
+        for (const pr of currentelement.products){
+            companion.productadd(pr)
+        }
 
-   // TODO 6
+        factory.addmano(companion)
+    }
+
+   // TODO 6 
 }
 
 
 initTable()
-
+console.log(factory)
 /**
 * 
 * eventlistener callback for the button click of companion
