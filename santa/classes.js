@@ -9,6 +9,9 @@ class Factory{
         createRow(companion)
         
     }
+    idgeneralas(){
+        return this.manolist
+    }
  
 }
    
@@ -25,6 +28,7 @@ class Factory{
         this.reszleg=reszleg
         this.productlist=[]//nem szukseges ,nincs mikor meghiv companion
     }
+  
     getname(){
         return this.veznev + " " + this.kernev
 
