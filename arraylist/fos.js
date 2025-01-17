@@ -15,14 +15,35 @@ class Arraylist{
     Add(item){
         const index = this.#count
         this.#statusz[index] = item
+       Object.defineProperty(this,index,{
+        get:function(){
+        return this.#statusz[index]
+        },
+        
+            set:function(value)
+            
+        {
+            this.#statusz[index] =value;
+        }
     }
-   
+)      
+        this.#count++   
+        
+    } 
     Clear(){
+        this.#count=0;
 
 
     }
    
 }
  const csirke ={}
-csirke = "def";
-console.log=(csirke)
+csirke.a = "def";
+console.log(csirke)
+
+const alma = {}
+Object.defineProperty(alma,'nev',{
+    value:"Ferenc", writable : true
+});
+alma.nev="asd"
+console.log(alma)
