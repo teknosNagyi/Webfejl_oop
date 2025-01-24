@@ -5,7 +5,7 @@ class Arraylist{
      * @type {Number}
      */
     get Count (){
-        return this.#count
+        return this.count
     }
     
     constructor(){
@@ -13,11 +13,11 @@ class Arraylist{
         this.#statusz={}
     }
     Add(item){
-        const index = this.#count
-        this.#statusz[index] = item
+        const index = this.count
+        this.statusz[index] = item
        Object.defineProperty(this,index,{
         get:function(){
-        return this.#statusz[index]
+        return this.statusz[index]
         },
         
             set:function(value)
@@ -39,7 +39,7 @@ class Arraylist{
 }
  const csirke ={}
 csirke.a = "def";
-console.log(csirke)
+console.log(csirke.a)
 
 const alma = {}
 Object.defineProperty(alma,'nev',{
