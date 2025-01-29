@@ -83,9 +83,10 @@ b.Add({ nev: "Laci", eletkor: 18 });
 b.Add({ nev: "Sanyi", eletkor: 21 });
 
 const button = document.createElement('button')
+button.innerHTML="hozzaad"
 document.body.appendChild(button)
 
 button.addEventListener('click', (e) =>{
-    b.add({nev:'vvalaki',eletkor:155})
+    b.Add({nev:'vvalaki',eletkor:155})
 })
 
