@@ -9,6 +9,7 @@ class ArrayList {
     constructor(array = undefined) {
         this.#count = 0;
         this.#state = {};
+        this.#htmlarray = array;
     }
  
     Add(param) {
@@ -20,6 +21,9 @@ class ArrayList {
             configurable: true,
             set: (value) => { this.#state[index] = value; }
         });
+        if(this.#htmlarray){
+            this.#htmlarray.addPersonrow(param)
+        }
         this.#count++;
     }
  
@@ -60,7 +64,7 @@ class ArrayHTMLTable extends HTMLElement {
     }
 }
 
-customElements.define('array-t', ArrayHTMLTable);
+
 
 const a = new ArrayList();
 a.Add({ nev: "Laci", eletkor: 18 });
@@ -68,9 +72,20 @@ a.Add({ nev: "Sanyi", eletkor: 21 });
 a.Clear();
 console.log(a);
 
-const htmltable = new ArrayHTMLTable();
-document.body.appendChild(htmltable);
-htmltable.addPersonrow({ nev: "Laci", eletkor: 18 });
+customElements.define('array-t', ArrayHTMLTable);
 
-const b = new ArrayList()
+const htmltable = new ArrayHTMLTable();
+
+document.body.appendChild(htmltable);
+
+const b = new ArrayList(htmltable);
+b.Add({ nev: "Laci", eletkor: 18 });
+b.Add({ nev: "Sanyi", eletkor: 21 });
+
+const button = document.createElement('button')
+document.body.appendChild(button)
+
+button.addEventListener('click', (e) =>{
+    b.add({nev:'vvalaki',eletkor:155})
+})
 
