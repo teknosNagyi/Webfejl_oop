@@ -24,7 +24,7 @@ class Datamanager {
  * @param {Person[]} array 
  */
 constructor(array = []){
-    this.#array = []
+    
     this.#array = array
     this.#updatecallback = ()=>{}
     /**
@@ -64,6 +64,16 @@ filter_Age(asd){
 
     this.#updatecallback(result)
 }
+filter(asd){
+    const result = []
+    for(const elem of this.#array){
+       if( elem.eletkor===asd){
+        result.push(elem)
+       }
+    }
+
+    this.#updatecallback(result)
+}
 }
 
 
@@ -83,6 +93,7 @@ class Datatable {
         thead.appendChild(tbody)
 
         datamanager.setupdatecallback((persons)=>{
+            tbody.innerHTML=""
             for(let elem of persons){
                 const sor = document.createElement('tr')
                 
@@ -104,5 +115,30 @@ class Datatable {
 const manager = new Datamanager([{nev:"Feri", eletkor: 17} ,{ nev:"Teri",eletkor:18},{nev:"Gábor",eletkor:18 }])
 const table = new Datatable(manager)
 
-const input = document.createElement('input')
-input.addEventListener('input',(e))
+
+
+
+const input3 = document.createElement('input')
+
+document.body.appendChild(input3);
+input3.type='file';
+input3.addEventListener('change',(e)=>{
+  const file = e.target.files[0]  
+  const reader= new FileReader();
+  reader.readAsText(file)
+
+
+  reader.onload=()=>{
+    const filecontent=reader.result
+    const asd = filecontent.split('\n')
+
+    for ( const ember of asd){
+        const tomb=ember.split(';')
+        const pers = {
+            nev: tomb[0],
+            eletkor: Number(tomb[1])
+        }
+        manager.add(pers)
+    }
+  }
+})
