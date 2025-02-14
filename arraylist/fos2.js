@@ -4,6 +4,9 @@ function fun(param){
 function funA(){
     console.log(this.nev)
 }
-let a = ["asdsadasd","asdassagfgg"]
 
-fun(a.nev)
+
+let a = ["asdsadasd","asdassagfgg"]
+            
+            
+fun(a.nev)  
